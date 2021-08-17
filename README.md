@@ -38,9 +38,12 @@ Test successful case of mbx_get
 Description:  Test the full functionality of mbx_ls. 
 Test successful case of mbx_ls 
 * Case 0: creates a task which creates 3 additional tasks with mailboxes, thereby creating 4 tasks other than the default tasks, then uses mbx_ls with a count lower than the amount of running tasks with mailboxes, expects correct number of tasks from mbx_ls 
+
 * Case 1: Building off of case 0, uses mbx_ls with a count greater than the amount of running tasks and expects correct response  
+
 * Case2: Creates two tasks which register mailboxes, then removes mailboxes using mbx_rmv, uses mbx_ls to verify correct number of mailboxes 
 **Test error cases of mbx_ls. In all the below cases RTX_ERROR is returned and ERRNO is set**
+
 * Case 3: Attempts using mbx_ls for a null receiving buffer, expects correct error response 
 
  
@@ -49,11 +52,16 @@ Test successful case of mbx_ls
 Description:  Test the full functionality of send_msg_nb. 
 Test successful case of send_msg_nb (same as test3 case 0 and 1) 
 * Case 0: push message that fits to mbx with no error to non-blocked receiving task. 
+
 * Case 1: push message that fits to mbx with no error to blocked receiving task. 
 **Test error cases of send_msg_nb. In all the below cases RTX_ERROR is returned and ERRNO is set**
+
 * Case 2: buf arg is NULL  
+
 * Case 3: buffer is too small to hold the message  
+
 * Case 4: calling tsk has no mailbox initialized  
+
 * Case 5: no msg when function is called  
 
 ## int start_test3 () ## 
@@ -61,6 +69,7 @@ Test successful case of send_msg_nb (same as test3 case 0 and 1)
 Description:  Test the full functionality of recv_msg_nb. 
 Test successful case of  
 * Case 0: push message that fits to mbx with no error to non-blocked receiving task. 
+
 * Case 1: push message that fits to mbx with no error to blocked receiving task. 
 **Test error cases of mbx_get. In all the below cases RTX_ERROR is returned and ERRNO is set** 
  
@@ -71,17 +80,24 @@ IN ORDER TO RUN THIS TEST,    SUITE2_TASKS.C   AND    STUDDENT_INC.C NEED TO BE 
 ## int start_test0 () ## 
 Description:  Test the full functionality of blocking behaviour 
 * Case 0: test that when mbx empty, correct seq of events occurs 
+
 * Case 1: mbx_rmv() preempts properly w empty mbx and blocked tsks 
+
 * Case 2: tsk_exit() preempts properly w empty mbx and blocked tsks 
+
 * Case 3: test that when mbx full, correct seq of events occurs 
+
 * Case 4: mbx_rmv() preempts properly w empty mbx and blocked tsks 
+
 * Case 5: tsk_exit() preempts properly w empty mbx and blocked tsks 
 
  
 # int start_test1 () # 
 Description:  
 * Case 0: test that when mbx full, premption occurs 
+
 * Case 1: building off of last test check again if mbx_rmv() preempts properly w empty mbx and blocked tsks 
+
 * Case 2: building off of last test check again if tsk_exit() preempts properly w empty mbx and blocked tsks 
  
 
