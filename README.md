@@ -6,4 +6,7 @@ testing the nondeterministic nature of the real time EDF scheduler we implemente
 creation and inter-thread communication and signaling
 
 
+
+
+We can see an image below of how the scheduler is intended to work:
 ![Shceduler Image](https://i.stack.imgur.com/kk7kg.png)
